@@ -60,16 +60,7 @@ Config.UsePrivateCarGarages = true -- true = Allows use of Private Car Garages.
 -- Deleter2 = Job Aircraft Delete Location | Heading = Spawn Heading | Heading2 = Job Aircraft Spawn Heading
 
 -- Start of Ambulance
-Config.AmbulanceGarages = {
-	Los_Santos = {
-		Marker = vector3(302.95, -1453.5, 28.97),
-		Spawner = vector3(300.33, -1431.91, 29.8),
-		Spawner2 = vector3(313.36, -1465.17, 46.51),
-		Deleter = vector3(300.33, -1431.91, 28.8),
-		Deleter2 = vector3(313.36, -1465.17, 45.51),
-		Heading = 226.71,
-		Heading2 = 318.34
-	}
+Config.AmbulanceGarages = {}
 }
 
 Config.AmbulancePounds = {
@@ -82,26 +73,33 @@ Config.AmbulancePounds = {
 -- End of Ambulance
 
 -- Start of Police
-Config.PoliceGarages = {
-	Los_Santos = {
-		Marker = vector3(425.41, -1003.43, 29.71),
-		Spawner = vector3(434.28, -1015.8, 28.83),
-		Spawner2 = vector3(449.21, -981.35, 43.69),
-		Deleter = vector3(462.95, -1014.56, 27.07),
-		Deleter2 = vector3(449.21, -981.35, 42.69),
-		Heading = 90.46,
-		Heading2 = 184.53
-	}
-}
+Config.PoliceGarages = {}
 
 Config.PolicePounds = {
 	Los_Santos = {
 		Marker = vector3(374.42, -1620.68, 28.29),
 		Spawner = vector3(391.74, -1619.0, 28.29),
 		Heading = 318.34
-	}
+    },
+    Vespucci_Blvd = {
+        Marker = vector3(-1086.2, -849.8, 3.9),
+        Spawner = vector3(-1068.5, -857.2, 3.2),
+		Heading = 216.7,
+		Hidden = true
+    }
 }
 -- End of Police
+
+-- Start of Mechanic
+
+Config.MechanicPounds = {
+	Mechanic_Hub = {
+		Marker = vector3(1013.1, -2324.0, 30.5),
+		Spawner = vector3(988.5, -2349.6, 30.5),
+		Heading = 318.34
+	}
+}
+-- End of Mechanic
 
 -- Start of Aircrafts
 Config.AircraftGarages = {
@@ -122,6 +120,13 @@ Config.AircraftGarages = {
 		Spawner = vector3(2122.72, 4804.85, 40.78),
 		Deleter = vector3(2082.36, 4806.06, 40.07),
 		Heading = 115.04
+	},
+	Mechanic_Hub = {
+		Marker = vector3(999.3, -2361.6, 34.6),
+		Spawner = vector3(1011.9, -2358.8, 36.1),
+		Deleter = vector3(1001.7, -2337, 37.9),
+		Heading = 84,
+		Hidden = true
 	}
 }
 
@@ -153,6 +158,13 @@ Config.BoatGarages = {
 		Spawner = vector3(-290.46, 6622.72, -0.47),
 		Deleter = vector3(-304.66, 6607.36, -0.47),
 		Heading = 52.0
+	},
+	Terror_Dock = {
+		Marker = vector3(3090.01, 2230.8, 2.1),
+		Spawner = vector3(3089.2, 2219.5, 0.6),
+		Deleter = vector3(3112.8, 2203.2, 1.1),
+		Heading = 174.53,
+		Hidden = true
 	}
 }
 
@@ -183,6 +195,12 @@ Config.CarGarages = {
 --		Deleter = vector3(223.80, -760.42, 29.65),
 --		Heading = 157.84
 --	},
+	SanAndreas_PillBox = {
+        Marker = vector3(213.80, -809.20, 30.00),
+	    Spawner = vector3(231.70, -796.70, 29.80),
+	    Deleter = vector3(220.4, -759.50, 29.80),
+	    Heading = 157.84
+	},
 	Sandy_Shores = {
 		Marker = vector3(1737.59, 3710.2, 33.14),
 		Spawner = vector3(1737.84, 3719.28, 33.04),
@@ -195,53 +213,95 @@ Config.CarGarages = {
 		Deleter = vector3(126.36, 6608.41, 30.86),
 		Heading = 315.01
 	},
-	SanAndreas_PillBox = {
-        	Marker = vector3(213.80, -809.20, 30.00),
-	        Spawner = vector3(231.70, -796.70, 29.80),
-	        Deleter = vector3(220.4, -759.50, 29.80),
-	        Heading = 157.84
-	},
 	Terror_PubGarage = {                                                                                                                                                                                                                                       Marker = vector3(2868.20, 1688.30, 23.20),
-                Spawner = vector3(2823.50, 1677.50, 23.7),
-                Deleter = vector3(2834.00, 1678.10, 23.6),
-                Heading = 0.00,
+        Spawner = vector3(2823.50, 1677.50, 23.7),
+        Deleter = vector3(2834.00, 1678.10, 23.6),
+        Heading = 0.00,
 		Hidden = true
 	},
 	OldPD_PG = {
         Marker = vector3(462.4, -1014.6, 27.1),
-        Spawner = vector3(434.28, -1015.8, 28.83),
-        Deleter = vector3(462.95, -1019.20, 27.10),
+        Spawner = vector3(462.8, -1017.4, 28.1),
+        Deleter = vector3(452.6, -997.2, 24.8),
         Heading = 90.46,
-           Hidden = true                                            },
+        Hidden = true
+    },
+    Vespucci_PG = {
+        Marker = vector3(-1107.2, -838.1, 12.3),
+        Spawner = vector3(-1137.2, -857.4, 11.8),
+        Deleter = vector3(-1111.5, -828.8, 12.3),
+        Heading = 38.08,
+		Hidden = true
+	},
+	Paleto_Bay = {
+		Marker = vector3(-459.5, 6023.3, 30.3),
+		Spawner = vector3(-454.1, 6027.8, 30.3),
+		Deleter = vector3(-458.7, 6005.6, 30.3),
+		Heading = 314.42,
+		Hidden = true
+	}
+	LDC_CD = {
+		Marker = vector3(-1208.7, -1730.4, 3.4),
+		Spawner = vector3(-1212.8, -1733.3, 3.4),
+		Deleter = vector3(-1198.1, -1757.6, 3.4),
+		Heading = 216.86,
+		Hidden = true
+	},
+	Fort_Zancudo = {
+		Marker = vector3(-2411.5, 3266.1, 33),
+		Spawner = vector3(-2419.9, 3277.8, 32.8),
+		Deleter = vector3(-2409.3, 3285.5, 32.8),
+		Heading = 330.89,
+		Hidden = true
+	},
+	Weazel_News = {
+		Marker = vector3(-582.9, -911.3, 23.9),
+		Spawner = vector3(-564.7, -902.1, 23.3),
+		Deleter = vector3(-603.8, -909.4, 23.9),
+		Heading = 269.1,
+		Hidden = true
+	},
+	Mechanic_Hub = {
+		Marker = vector3(998, -2321.8, 29.6),
+		Spawner = vector3(992.5, -2311.7, 28.5),
+		Deleter = vector3(1002.8, -2289.4, 29.8),
+		Heading = 174.55,
+		Hidden = true
+	},
 	LSI_Airport = {
 		Marker = vector3(-990.7, -2699.4, 12.8),
 		Spawner = vector3(-977.3, -2699.9, 12.9),
 		Deleter = vector3(-961.3, -2705.7, 12.8),
-		Heading = 58.7
+		Heading = 58.7,
+        Hidden = true
     },
 	DelPerro_Pier = {
 		Marker = vector3(-1599.1, -874.2, 8.8),
 		Spawner = vector3(-1621.2, -861.1, 8.8),
 		Deleter = vector3(-1593.4, -910.2, 8.2),
-		Heading = 228.37
+		Heading = 228.37,
+        Hidden = true
     },
 	MazeBank_Arena = {
 		Marker = vector3(-185.8, -1995.9, 26.7),
 		Spawner = vector3(-200.1, -1980.9, 26.6),
 		Deleter = vector3(-174.6, -1992.6, 26.6),
-		Heading = 180.00
+		Heading = 180.00,
+        Hidden = true
     },
 	Boiling_Brooke = {
 		Marker = vector3(1853.6, 2578.6, 44.7),
 		Spawner = vector3(1864.2, 2562.8, 44.7),
 		Deleter = vector3(1870.5, 2590.6, 44.7),
-		Heading = 0.52
+		Heading = 0.52,
+        Hidden = true
     },
 	Concert_Hall = {
 		Marker = vector3(699.7, 612.9, 127.9),
 		Spawner = vector3(707.7, 603.2, 127.9),
 		Deleter = vector3(672.6, 616.4, 127.9),
-		Heading = 70.42
+		Heading = 70.42,
+        Hidden = true
     }
 }
 
@@ -260,7 +320,12 @@ Config.CarPounds = {
 		Marker = vector3(-234.82, 6198.65, 30.94),
 		Spawner = vector3(-230.08, 6190.24, 30.49),
 		Heading = 140.24
-	}
+	},
+	Mechanic_Hub = {
+		Marker = vector3(1001.6, -2324, 29.5),
+		Spawner =  vector3(994.5, -2289.2, 29.5),
+		Heading = 174.55,
+		Hidden = true
 }
 -- End of Cars
 

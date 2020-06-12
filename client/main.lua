@@ -444,6 +444,138 @@ function ReturnOwnedPoliceMenu()
 end
 -- End of Police Code
 
+-- Start of Mechanic Code
+function ListOwnedMechanicMenu()
+	local elements = {}
+
+	if Config.ShowVehicleLocation and Config.ShowSpacers then
+		local spacer = ('| <span style="color:red;">%s</span> - <span style="color:darkgoldenrod;">%s</span> - <span style="color:red;">%s</span> |'):format(_U('plate'), _U('vehicle'), _U('location'))
+		table.insert(elements, {label = spacer, value = nil})
+	elseif Config.ShowVehicleLocation == false and Config.ShowSpacers then
+		local spacer = ('| <span style="color:red;">%s</span> - <span style="color:darkgoldenrod;">%s</span> |'):format(_U('plate'), _U('vehicle'))
+		table.insert(elements, {label = ('<span style="color:red;">%s</span>'):format(_U('spacer1')), value = nil})
+		table.insert(elements, {label = spacer, value = nil})
+	end
+
+	ESX.TriggerServerCallback('esx_advancedgarage:getOwnedMechanicCars', function(ownedMehanicCars)
+		if #ownedMechanicCars == 0 then
+			ESX.ShowNotification(_U('garage_no_mechanic'))
+		else
+			for _,v in pairs(ownedMechanicCars) do
+				local hashVehicule = v.vehicle.model
+				local aheadVehName = GetDisplayNameFromVehicleModel(hashVehicule)
+				local vehicleName = GetLabelText(aheadVehName)
+				local plate = v.plate
+				local labelvehicle
+				local labelvehicle2 = ('| <span style="color:red;">%s</span> - <span style="color:darkgoldenrod;">%s</span> - '):format(plate, vehicleName)
+				local labelvehicle3 = ('| <span style="color:red;">%s</span> - <span style="color:darkgoldenrod;">%s</span> | '):format(plate, vehicleName)
+
+				if Config.ShowVehicleLocation then
+					if v.stored then
+						labelvehicle = labelvehicle2 .. ('<span style="color:green;">%s</span> |'):format(_U('loc_garage'))
+					else
+						labelvehicle = labelvehicle2 .. ('<span style="color:red;">%s</span> |'):format(_U('loc_pound'))
+					end
+				else
+					if v.stored then
+						labelvehicle = labelvehicle3
+					else
+						labelvehicle = labelvehicle3
+					end
+				end
+
+				table.insert(elements, {label = labelvehicle, value = v})
+			end
+		end
+
+		table.insert(elements, {label = _U('spacer2'), value = nil})
+	end)
+end
+
+function StoreOwnedMechanicMenu()
+	local playerPed  = GetPlayerPed(-1)
+
+	if IsPedInAnyVehicle(playerPed,  false) then
+		local playerPed = GetPlayerPed(-1)
+		local coords = GetEntityCoords(playerPed)
+		local vehicle = GetVehiclePedIsIn(playerPed, false)
+		local vehicleProps = ESX.Game.GetVehicleProperties(vehicle)
+		local current = GetPlayersLastVehicle(GetPlayerPed(-1), true)
+		local engineHealth = GetVehicleEngineHealth(current)
+		local plate = vehicleProps.plate
+
+		ESX.TriggerServerCallback('esx_advancedgarage:storeVehicle', function(valid)
+			if valid then
+				if engineHealth > 0 then
+					if Config.UseDamageMult then
+						local apprasial = math.floor((1000 - engineHealth)/1000*Config.MechanicPoundPrice*Config.DamageMult)
+						RepairVehicle(apprasial, vehicle, vehicleProps)
+					else
+						local apprasial = math.floor((1000 - engineHealth)/1000*Config.MechanicPoundPrice)
+						RepairVehicle(apprasial, vehicle, vehicleProps)
+					end
+				else
+					StoreVehicle(vehicle, vehicleProps)
+				end	
+			else
+				ESX.ShowNotification(_U('cannot_store_vehicle'))
+			end
+		end, vehicleProps)
+	else
+		ESX.ShowNotification(_U('no_vehicle_to_enter'))
+	end
+end
+
+function ReturnOwnedMechanicMenu()
+	if WasinJPound then
+		ESX.ShowNotification(_U('must_wait', Config.JPoundWait))
+	else
+		ESX.TriggerServerCallback('esx_advancedgarage:getOutOwnedMechanicCars', function(ownedMechanicCars)
+			local elements = {}
+
+			if Config.ShowVehicleLocation == false and Config.ShowSpacers then
+				local spacer = ('| <span style="color:red;">%s</span> - <span style="color:darkgoldenrod;">%s</span> |'):format(_U('plate'), _U('vehicle'))
+				table.insert(elements, {label = spacer, value = nil})
+			end
+
+			for _,v in pairs(ownedMechanicCars) do
+				local hashVehicule = v.model
+				local aheadVehName = GetDisplayNameFromVehicleModel(hashVehicule)
+				local vehicleName = GetLabelText(aheadVehName)
+				local plate = v.plate
+				local labelvehicle
+				local labelvehicle2 = ('| <span style="color:red;">%s</span> - <span style="color:darkgoldenrod;">%s</span> - '):format(plate, vehicleName)
+
+				labelvehicle = labelvehicle2 .. ('<span style="color:green;">%s</span> |'):format(_U('return'))
+
+				table.insert(elements, {label = labelvehicle, value = v})
+			end
+
+			ESX.UI.Menu.Open('default', GetCurrentResourceName(), 'return_owned_mechanic', {
+				title = _U('pound_mechanic', ESX.Math.GroupDigits(Config.MechanicPoundPrice)),
+				align = Config.MenuAlign,
+				elements = elements
+			}, function(data, menu)
+				ESX.TriggerServerCallback('esx_advancedgarage:checkMoneyMechanic', function(hasEnoughMoney)
+					if hasEnoughMoney then
+						if data.current.value == nil then
+						else
+							SpawnVehicle(data.current.value, data.current.value.plate)
+							TriggerServerEvent('esx_advancedgarage:payMechanic')
+						end
+					else
+						ESX.ShowNotification(_U('not_enough_money'))
+					end
+				end)
+			end, function(data, menu)
+				menu.close()
+				WasinJPound = true
+			end)
+		end)
+	end
+end
+-- End of Mechanic Code
+
 -- Start of Aircraft Code
 function ListOwnedAircraftsMenu()
 	local elements = {}
@@ -1000,6 +1132,18 @@ AddEventHandler('esx_advancedgarage:hasEnteredMarker', function(zone)
 		CurrentAction = 'police_pound_point'
 		CurrentActionMsg = _U('press_to_impound')
 		CurrentActionData = {}
+	elseif zone == 'mechanic_garage_point' then
+		CurrentAction = 'mechanic_garage_point'
+		CurrentActionMsg = _U('press_to_enter')
+		CurrentActionData = {}
+	elseif zone == 'mechanic_store_point' then
+		CurrentAction = 'mechanic_store_point'
+		CurrentActionMsg = _U('press_to_delete')
+		CurrentActionData = {}
+	elseif zone == 'mechanic_pound_point' then
+		CurrentAction = 'mechanic_pound_point'
+		CurrentActionMsg = _U('press_to_impound')
+		CurrentActionData = {}
 	elseif zone == 'aircraft_garage_point' then
 		CurrentAction = 'aircraft_garage_point'
 		CurrentActionMsg = _U('press_to_enter')
@@ -1185,6 +1329,72 @@ Citizen.CreateThread(function()
 
 						if distance < Config.JPoundMarker.x then
 							isInMarker, this_Garage, currentZone = true, v, 'police_pound_point'
+						end
+					end
+				end
+			end
+		end
+
+		if Config.UseMechanicGarages then
+			if ESX.PlayerData.job and ESX.PlayerData.job.name == 'mechanic' then
+				for k,v in pairs(Config.MechanicGarages) do
+					local distance = #(playerCoords - v.Marker)
+					local distance2 = #(playerCoords - v.Deleter)
+					local distance3 = #(playerCoords - v.Deleter2)
+
+					if distance < Config.DrawDistance then
+						letSleep = false
+
+						if Config.PointMarker.Type ~= -1 then
+							DrawMarker(Config.PointMarker.Type, v.Marker, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Config.PointMarker.x, Config.PointMarker.y, Config.PointMarker.z, Config.PointMarker.r, Config.PointMarker.g, Config.PointMarker.b, 100, false, true, 2, false, nil, nil, false)
+						end
+
+						if distance < Config.PointMarker.x then
+							isInMarker, this_Garage, currentZone = true, v, 'mechanic_garage_point'
+						end
+					end
+
+					if distance2 < Config.DrawDistance then
+						letSleep = false
+
+						if Config.DeleteMarker.Type ~= -1 then
+							DrawMarker(Config.DeleteMarker.Type, v.Deleter, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Config.DeleteMarker.x, Config.DeleteMarker.y, Config.DeleteMarker.z, Config.DeleteMarker.r, Config.DeleteMarker.g, Config.DeleteMarker.b, 100, false, true, 2, false, nil, nil, false)
+						end
+
+						if distance2 < Config.DeleteMarker.x then
+							isInMarker, this_Garage, currentZone = true, v, 'mechanic_store_point'
+						end
+					end
+
+					if distance3 < Config.DrawDistance then
+						letSleep = false
+
+						if Config.DeleteMarker.Type ~= -1 then
+							DrawMarker(Config.DeleteMarker.Type, v.Deleter2, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Config.DeleteMarker.x, Config.DeleteMarker.y, Config.DeleteMarker.z, Config.DeleteMarker.r, Config.DeleteMarker.g, Config.DeleteMarker.b, 100, false, true, 2, false, nil, nil, false)
+						end
+
+						if distance3 < Config.DeleteMarker.x then
+							isInMarker, this_Garage, currentZone = true, v, 'mechanic_store_point'
+						end
+					end
+				end
+			end
+		end
+
+		if Config.UseMechanicPounds then
+			if ESX.PlayerData.job and ESX.PlayerData.job.name == 'mechanic' then
+				for k,v in pairs(Config.PolicePounds) do
+					local distance = #(playerCoords - v.Marker)
+
+					if distance < Config.DrawDistance then
+						letSleep = false
+
+						if Config.JPoundMarker.Type ~= -1 then
+							DrawMarker(Config.JPoundMarker.Type, v.Marker, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Config.JPoundMarker.x, Config.JPoundMarker.y, Config.JPoundMarker.z, Config.JPoundMarker.r, Config.JPoundMarker.g, Config.JPoundMarker.b, 100, false, true, 2, false, nil, nil, false)
+						end
+
+						if distance < Config.JPoundMarker.x then
+							isInMarker, this_Garage, currentZone = true, v, 'mechanic_pound_point'
 						end
 					end
 				end
@@ -1403,6 +1613,12 @@ Citizen.CreateThread(function()
 					StoreOwnedPoliceMenu()
 				elseif CurrentAction == 'police_pound_point' then
 					ReturnOwnedPoliceMenu()
+				elseif CurrentAction == 'mechanic_garage_point' then
+					ListOwnedMechanicMenu()
+				elseif CurrentAction == 'mechanic_store_point' then
+					StoreOwnedMechanicMenu()
+				elseif CurrentAction == 'mechanic_pound_point' then
+					ReturnOwnedMechanicMenu()
 				elseif CurrentAction == 'aircraft_garage_point' then
 					ListOwnedAircraftsMenu()
 				elseif CurrentAction == 'aircraft_store_point' then

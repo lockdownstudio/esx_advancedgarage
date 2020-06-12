@@ -44,6 +44,13 @@ Locales['en'] = {
 	['garage_no_police'] = 'You dont own any Police Vehicles!',
 	['garage_no_police_aircraft'] = 'You dont own any Police Aircrafts!',
 	['police_is_impounded'] = 'Your Police Vehicle is at the Impound.',
+	-- Mechanic
+	['blip_mechanic_garage'] = 'Garage | Mechanic Garage',
+	['blip_mechanic_pound'] = 'Garage | Mechanic Pound',
+	['garage_mechanic'] = 'Mechanic Garage',
+	['pound_mechanic'] = 'Mechanic Pound: Fee $%s',
+	['garage_no_mechanic'] = 'You dont own any Mechanic Vehicles!',
+	['mechanic_is_impounded'] = 'Your Mechanic Vehicle is at the Impound.',
 	-- Aircrafts
 	['garage_aircrafts'] = 'Aircraft Garage',
 	['pound_aircrafts'] = 'Aircraft Pound: Fee $%s',
