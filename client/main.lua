@@ -1715,8 +1715,8 @@ function CreateBlips()
 
 	if Config.UseCarGarages and Config.UseCarBlips then
 		for k,v in pairs(Config.CarGarages) do
-			local blip = AddBlipForCoord(v.Marker)
 			if not v.Hidden then
+			local blip = AddBlipForCoord(v.Marker)
 
 			SetBlipSprite (blip, Config.GarageBlip.Sprite)
 			SetBlipColour (blip, Config.GarageBlip.Color)
