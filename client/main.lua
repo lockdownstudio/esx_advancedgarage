@@ -1716,6 +1716,7 @@ function CreateBlips()
 	if Config.UseCarGarages and Config.UseCarBlips then
 		for k,v in pairs(Config.CarGarages) do
 			local blip = AddBlipForCoord(v.Marker)
+			if not v.Hidden then
 
 			SetBlipSprite (blip, Config.GarageBlip.Sprite)
 			SetBlipColour (blip, Config.GarageBlip.Color)
@@ -1727,6 +1728,7 @@ function CreateBlips()
 			AddTextComponentString(_U('blip_garage'))
 			EndTextCommandSetBlipName(blip)
 			table.insert(BlipList, blip)
+			end
 		end
 
 		for k,v in pairs(Config.CarPounds) do
