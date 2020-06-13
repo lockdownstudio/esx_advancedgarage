@@ -52,16 +52,17 @@ Config.BoatPoundPrice = 500 -- How much it Costs to get Vehicle from Boat Pound.
 
 Config.UseCarGarages = true -- true = Allows use of Car Garages.
 Config.UseCarBlips = true -- true = Use Car Blips.
-Config.CarPoundPrice = 5000 -- How much it Costs to get Vehicle from Car Pound.
+Config.CarPoundPrice = 10000 -- How much it Costs to get Vehicle from Car Pound.
 
 Config.UsePrivateCarGarages = true -- true = Allows use of Private Car Garages.
+Config.UseMechanicPounds = true -- true = Allows use of Police Pounds.
+Config.UseMechanicBlips = true -- true = Use Police Blips.
 
 -- Marker = Enter Location | Spawner = Spawn Location | Spawner2 = Job Aircraft Spawn Location | Deleter = Delete Location
 -- Deleter2 = Job Aircraft Delete Location | Heading = Spawn Heading | Heading2 = Job Aircraft Spawn Heading
 
 -- Start of Ambulance
 Config.AmbulanceGarages = {}
-}
 
 Config.AmbulancePounds = {
 	Los_Santos = {
@@ -173,6 +174,13 @@ Config.BoatPounds = {
 		Marker = vector3(-738.67, -1400.43, 4.0),
 		Spawner = vector3(-738.33, -1381.51, 0.12),
 		Heading = 137.85
+	},
+
+	Terrorist_Dock = {
+        Marker = vector3(3130.80, 2180.00, 4.40),
+        Spawner = vector3(3112.60, 2173.00, -0.50),
+        Heading = 121.02,
+		Hidden = true
 	}
 	--[[Sandy_Shores_Dock = {
 		Marker = vector3(1299.36, 4217.93, 32.91),
