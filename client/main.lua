@@ -1651,6 +1651,7 @@ end)
 function CreateBlips()
 	if Config.UseAircraftGarages and Config.UseAircraftBlips then
 		for k,v in pairs(Config.AircraftGarages) do
+			if not v.Hidden then
 			local blip = AddBlipForCoord(v.Marker)
 
 			SetBlipSprite (blip, Config.GarageBlip.Sprite)
@@ -1663,6 +1664,7 @@ function CreateBlips()
 			AddTextComponentString(_U('blip_garage'))
 			EndTextCommandSetBlipName(blip)
 			table.insert(BlipList, blip)
+			end
 		end
 
 		for k,v in pairs(Config.AircraftPounds) do
@@ -1736,6 +1738,7 @@ function CreateBlips()
 		end
 
 		for k,v in pairs(Config.CarPounds) do
+			if not v.Hidden then
 			local blip = AddBlipForCoord(v.Marker)
 
 			SetBlipSprite (blip, Config.PoundBlip.Sprite)
@@ -1748,6 +1751,7 @@ function CreateBlips()
 			AddTextComponentString(_U('blip_pound'))
 			EndTextCommandSetBlipName(blip)
 			table.insert(BlipList, blip)
+			end
 		end
 	end
 end
@@ -1795,6 +1799,7 @@ function RefreshJobBlips()
 	if Config.UseAmbulanceGarages and Config.UseAmbulanceBlips then
 		if ESX.PlayerData.job and ESX.PlayerData.job.name == 'ambulance' then
 			for k,v in pairs(Config.AmbulanceGarages) do
+				if not v.Hidden then
 				local blip = AddBlipForCoord(v.Marker)
 
 				SetBlipSprite (blip, Config.JGarageBlip.Sprite)
@@ -1807,6 +1812,7 @@ function RefreshJobBlips()
 				AddTextComponentString(_U('blip_ambulance_garage'))
 				EndTextCommandSetBlipName(blip)
 				table.insert(JobBlips, blip)
+				end
 			end
 		end
 	end
@@ -1814,6 +1820,7 @@ function RefreshJobBlips()
 	if Config.UseAmbulancePounds and Config.UseAmbulanceBlips then
 		if ESX.PlayerData.job and ESX.PlayerData.job.name == 'ambulance' then
 			for k,v in pairs(Config.AmbulancePounds) do
+				if not v.Hidden then
 				local blip = AddBlipForCoord(v.Marker)
 
 				SetBlipSprite (blip, Config.JPoundBlip.Sprite)
@@ -1826,6 +1833,7 @@ function RefreshJobBlips()
 				AddTextComponentString(_U('blip_ambulance_pound'))
 				EndTextCommandSetBlipName(blip)
 				table.insert(JobBlips, blip)
+				end
 			end
 		end
 	end
@@ -1833,6 +1841,7 @@ function RefreshJobBlips()
 	if Config.UsePoliceGarages and Config.UsePoliceBlips then
 		if ESX.PlayerData.job and ESX.PlayerData.job.name == 'police' then
 			for k,v in pairs(Config.PoliceGarages) do
+				if not v.Hidden then
 				local blip = AddBlipForCoord(v.Marker)
 
 				SetBlipSprite (blip, Config.JGarageBlip.Sprite)
@@ -1845,6 +1854,7 @@ function RefreshJobBlips()
 				AddTextComponentString(_U('blip_police_garage'))
 				EndTextCommandSetBlipName(blip)
 				table.insert(JobBlips, blip)
+				end
 			end
 		end
 	end
@@ -1852,6 +1862,7 @@ function RefreshJobBlips()
 	if Config.UsePolicePounds and Config.UsePoliceBlips then
 		if ESX.PlayerData.job and ESX.PlayerData.job.name == 'police' then
 			for k,v in pairs(Config.PolicePounds) do
+				if not v.Hidden then
 				local blip = AddBlipForCoord(v.Marker)
 
 				SetBlipSprite (blip, Config.JPoundBlip.Sprite)
@@ -1864,6 +1875,28 @@ function RefreshJobBlips()
 				AddTextComponentString(_U('blip_police_pound'))
 				EndTextCommandSetBlipName(blip)
 				table.insert(JobBlips, blip)
+				end
+			end
+		end
+	end
+
+	if Config.UseMechanicPounds and Config.UseMechanicBlips then
+		if ESX.PlayerData.job and ESX.PlayerData.job.name == 'mechanic' then
+			for k,v in pairs(Config.MechanicPounds) do
+				if not v.Hidden then
+				local blip = AddBlipForCoord(v.Marker)
+
+				SetBlipSprite (blip, Config.JPoundBlip.Sprite)
+				SetBlipColour (blip, Config.JPoundBlip.Color)
+				SetBlipDisplay(blip, Config.JPoundBlip.Display)
+				SetBlipScale  (blip, Config.JPoundBlip.Scale)
+				SetBlipAsShortRange(blip, true)
+
+				BeginTextCommandSetBlipName("STRING")
+				AddTextComponentString(_U('blip_mechanic_pound'))
+				EndTextCommandSetBlipName(blip)
+				table.insert(JobBlips, blip)
+				end
 			end
 		end
 	end

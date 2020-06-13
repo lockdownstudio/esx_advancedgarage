@@ -55,6 +55,8 @@ Config.UseCarBlips = true -- true = Use Car Blips.
 Config.CarPoundPrice = 10000 -- How much it Costs to get Vehicle from Car Pound.
 
 Config.UsePrivateCarGarages = true -- true = Allows use of Private Car Garages.
+Config.UseMechanicPounds = true -- true = Allows use of Police Pounds.
+Config.UseMechanicBlips = true -- true = Use Police Blips.
 
 -- Marker = Enter Location | Spawner = Spawn Location | Spawner2 = Job Aircraft Spawn Location | Deleter = Delete Location
 -- Deleter2 = Job Aircraft Delete Location | Heading = Spawn Heading | Heading2 = Job Aircraft Spawn Heading
