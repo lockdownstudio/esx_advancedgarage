@@ -334,6 +334,7 @@ Config.CarPounds = {
 		Spawner =  vector3(994.5, -2289.2, 29.5),
 		Heading = 174.55,
 		Hidden = true
+	}
 }
 -- End of Cars
 
