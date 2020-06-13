@@ -270,7 +270,7 @@ Config.CarGarages = {
 		Hidden = true
 	},
 	Mechanic_Hub = {
-		Marker = vector3(998, -2321.8, 29.6),
+		Marker = vector3(998.0, -2321.8, 29.6),
 		Spawner = vector3(992.5, -2311.7, 28.5),
 		Deleter = vector3(1002.8, -2289.4, 29.8),
 		Heading = 174.55,
@@ -330,7 +330,7 @@ Config.CarPounds = {
 		Heading = 140.24
 	},
 	Mechanic_Hub = {
-		Marker = vector3(1001.6, -2324, 29.5),
+		Marker = vector3(1001.6, -2324.0, 29.5),
 		Spawner =  vector3(994.5, -2289.2, 29.5),
 		Heading = 174.55,
 		Hidden = true
