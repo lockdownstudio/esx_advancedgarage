@@ -247,7 +247,7 @@ Config.CarGarages = {
 		Deleter = vector3(-458.7, 6005.6, 30.3),
 		Heading = 314.42,
 		Hidden = true
-	}
+	},
 	LDC_CD = {
 		Marker = vector3(-1208.7, -1730.4, 3.4),
 		Spawner = vector3(-1212.8, -1733.3, 3.4),
