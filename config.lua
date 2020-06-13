@@ -177,7 +177,7 @@ Config.BoatPounds = {
 	Terrorist_Dock = {
         Marker = vector3(3130.80, 2180.00, 4.40),
         Spawner = vector3(3112.60, 2173.00, -0.50),
-        Heading = 121.02
+        Heading = 121.02,
 		Hidden = true
 	}
 	--[[Sandy_Shores_Dock = {

@@ -1683,6 +1683,7 @@ function CreateBlips()
 
 	if Config.UseBoatGarages and Config.UseBoatBlips then
 		for k,v in pairs(Config.BoatGarages) do
+			if not v.Hidden then
 			local blip = AddBlipForCoord(v.Marker)
 
 			SetBlipSprite (blip, Config.GarageBlip.Sprite)
@@ -1695,9 +1696,11 @@ function CreateBlips()
 			AddTextComponentString(_U('blip_garage'))
 			EndTextCommandSetBlipName(blip)
 			table.insert(BlipList, blip)
+			end
 		end
 
 		for k,v in pairs(Config.BoatPounds) do
+			if not v.Hidden then
 			local blip = AddBlipForCoord(v.Marker)
 
 			SetBlipSprite (blip, Config.PoundBlip.Sprite)
@@ -1710,6 +1713,7 @@ function CreateBlips()
 			AddTextComponentString(_U('blip_pound'))
 			EndTextCommandSetBlipName(blip)
 			table.insert(BlipList, blip)
+			end
 		end
 	end
 
