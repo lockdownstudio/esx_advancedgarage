@@ -121,13 +121,6 @@ Config.AircraftGarages = {
 		Spawner = vector3(2122.72, 4804.85, 40.78),
 		Deleter = vector3(2082.36, 4806.06, 40.07),
 		Heading = 115.04
-	},
-	Mechanic_Hub = {
-		Marker = vector3(999.3, -2361.6, 34.6),
-		Spawner = vector3(1011.9, -2358.8, 36.1),
-		Deleter = vector3(1001.7, -2337, 37.9),
-		Heading = 84,
-		Hidden = true
 	}
 }
 
@@ -177,7 +170,7 @@ Config.BoatPounds = {
 	},
 
 	Terrorist_Dock = {
-        Marker = vector3(2129.9, 2180.3, 3.5),
+        Marker = vector3(3130.5, 2180.1, 3.4),
         Spawner = vector3(3112.60, 2173.00, -0.50),
         Heading = 121.02,
 		Hidden = true
