@@ -950,7 +950,7 @@ function StoreOwnedCarsMenu()
 
 		ESX.TriggerServerCallback('esx_advancedgarage:storeVehicle', function(valid)
 			if valid then
-				if engineHealth < 990 then
+				if engineHealth < 500 then
 					if Config.UseDamageMult then
 						local apprasial = math.floor((1000 - engineHealth)/1000*Config.CarPoundPrice*Config.DamageMult)
 						RepairVehicle(apprasial, vehicle, vehicleProps)

@@ -121,13 +121,6 @@ Config.AircraftGarages = {
 		Spawner = vector3(2122.72, 4804.85, 40.78),
 		Deleter = vector3(2082.36, 4806.06, 40.07),
 		Heading = 115.04
-	},
-	Mechanic_Hub = {
-		Marker = vector3(999.3, -2361.6, 34.6),
-		Spawner = vector3(1011.9, -2358.8, 36.1),
-		Deleter = vector3(1001.7, -2337, 37.9),
-		Heading = 84,
-		Hidden = true
 	}
 }
 
@@ -163,7 +156,7 @@ Config.BoatGarages = {
 	Terror_Dock = {
 		Marker = vector3(3090.01, 2230.8, 2.1),
 		Spawner = vector3(3089.2, 2219.5, 0.6),
-		Deleter = vector3(3112.8, 2203.2, 1.1),
+		Deleter = vector3(3116.8, 2207.8, 0.5),
 		Heading = 174.53,
 		Hidden = true
 	}
@@ -177,7 +170,7 @@ Config.BoatPounds = {
 	},
 
 	Terrorist_Dock = {
-        Marker = vector3(3130.80, 2180.00, 4.40),
+        Marker = vector3(3130.5, 2180.1, 3.4),
         Spawner = vector3(3112.60, 2173.00, -0.50),
         Heading = 121.02,
 		Hidden = true
@@ -241,8 +234,8 @@ Config.CarGarages = {
         Heading = 38.08,
 		Hidden = true
 	},
-	Paleto_Bay = {
-		Marker = vector3(-459.5, 6023.3, 30.3),
+	Paleto_Bay_Sherrif = {
+		Marker = vector3(-451.4, 6023.9, 30.5),
 		Spawner = vector3(-454.1, 6027.8, 30.3),
 		Deleter = vector3(-458.7, 6005.6, 30.3),
 		Heading = 314.42,
@@ -250,22 +243,22 @@ Config.CarGarages = {
 	},
 	LDC_CD = {
 		Marker = vector3(-1208.7, -1730.4, 3.4),
-		Spawner = vector3(-1212.8, -1733.3, 3.4),
-		Deleter = vector3(-1198.1, -1757.6, 3.4),
+		Spawner = vector3(-1198.7, -1744.7, 3.4),
+		Deleter = vector3(-1214.2, -1731.3, 3.4),
 		Heading = 216.86,
 		Hidden = true
 	},
 	Fort_Zancudo = {
-		Marker = vector3(-2411.5, 3266.1, 33),
+		Marker = vector3(-2411.5, 3266.1, 31.8),
 		Spawner = vector3(-2419.9, 3277.8, 32.8),
-		Deleter = vector3(-2409.3, 3285.5, 32.8),
+		Deleter = vector3(-2409.3, 3285.5, 31.8),
 		Heading = 330.89,
 		Hidden = true
 	},
 	Weazel_News = {
-		Marker = vector3(-582.9, -911.3, 23.9),
+		Marker = vector3(-582.9, -911.3, 22.9),
 		Spawner = vector3(-564.7, -902.1, 23.3),
-		Deleter = vector3(-603.8, -909.4, 23.9),
+		Deleter = vector3(-603.8, -909.4, 22.9),
 		Heading = 269.1,
 		Hidden = true
 	},
