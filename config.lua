@@ -25,7 +25,7 @@ Config.JGarageBlip = {Sprite = 290, Color = 49, Display = 2, Scale = 1.0} -- Job
 Config.JPoundBlip = {Sprite = 67, Color = 49, Display = 2, Scale = 1.0} -- Job Pound Blip.
 
 Config.PoundWait = 5 -- How many Minutes someone must wait before Opening Pound Menu Again.
-Config.JPoundWait = 2.5 -- How many Minutes someone must wait before Opening Job Pound Menu Again.
+Config.JPoundWait = 0.1 -- How many Minutes someone must wait before Opening Job Pound Menu Again.
 
 Config.UseDamageMult = false -- true = Costs more to Store a Broken/Damaged Vehicle.
 Config.DamageMult = 5 -- Higher Number = Higher Repair Price.
@@ -55,8 +55,30 @@ Config.UseCarBlips = true -- true = Use Car Blips.
 Config.CarPoundPrice = 10000 -- How much it Costs to get Vehicle from Car Pound.
 
 Config.UsePrivateCarGarages = true -- true = Allows use of Private Car Garages.
-Config.UseMechanicPounds = true -- true = Allows use of Police Pounds.
-Config.UseMechanicBlips = true -- true = Use Police Blips.
+Config.UseMechanicGarages = false -- true = Allows use of Mechanic Garages.
+Config.UseMechanicPounds = true -- true = Allows use of Mechanic Pounds.
+Config.UseMechanicBlips = true -- true = Use Mechanic Blips.
+Config.MechanicPoundPrice = 50 -- How much it Costs to get Vehicle from Mechanic Pound.
+
+Config.UseJournalistGarages = false -- true = Allows use of Journalist Garages.
+Config.UseJournalistPounds = true -- true = Allows use of Journalist Pounds.
+Config.UseJournalistBlips = true -- true = Use Journalist Blips.
+Config.JournalistPoundPrice = 50 -- How much it Costs to get Vehicle from Journalist Pound.
+
+Config.UseGovernmentGarages = false -- true = Allows use of Government Garages.
+Config.UseGovernmentPounds = true -- true = Allows use of Government Pounds.
+Config.UseGovernmentBlips = true -- true = Use Government Blips.
+Config.GovernmentPoundPrice = 50 -- How much it Costs to get Vehicle from Government Pound.
+
+Config.UseGovernmentGarages = false -- true = Allows use of Government Garages.
+Config.UseGovernmentPounds = true -- true = Allows use of Government Pounds.
+Config.UseGovernmentBlips = true -- true = Use Government Blips.
+Config.GovernmentPoundPrice = 50 -- How much it Costs to get Vehicle from Government Pound.
+
+Config.UseTerroristGarages = false -- true = Allows use of Terrorist Garages.
+Config.UseTerroristPounds = true -- true = Allows use of Terrorist Pounds.
+Config.UseTerroristBlips = true -- true = Use Terrorist Blips.
+Config.TerroristPoundPrice = 10000 -- How much it Costs to get Vehicle from Terrorist Pound.
 
 -- Marker = Enter Location | Spawner = Spawn Location | Spawner2 = Job Aircraft Spawn Location | Deleter = Delete Location
 -- Deleter2 = Job Aircraft Delete Location | Heading = Spawn Heading | Heading2 = Job Aircraft Spawn Heading
@@ -66,7 +88,7 @@ Config.AmbulanceGarages = {}
 
 Config.AmbulancePounds = {
 	Los_Santos = {
-		Marker = vector3(374.42, -1620.68, 28.29),
+		Marker = vector3(374.42, -1620.68, 27.99),
 		Spawner = vector3(391.74, -1619.0, 28.29),
 		Heading = 318.34
 	}
@@ -78,12 +100,12 @@ Config.PoliceGarages = {}
 
 Config.PolicePounds = {
 	Los_Santos = {
-		Marker = vector3(374.42, -1620.68, 28.29),
+		Marker = vector3(374.42, -1620.68, 27.99),
 		Spawner = vector3(391.74, -1619.0, 28.29),
 		Heading = 318.34
     },
     Vespucci_Blvd = {
-        Marker = vector3(-1086.2, -849.8, 3.9),
+        Marker = vector3(-1086.2, -849.8, 3.6),
         Spawner = vector3(-1068.5, -857.2, 3.2),
 		Heading = 216.7,
 		Hidden = true
@@ -95,29 +117,81 @@ Config.PolicePounds = {
 
 Config.MechanicPounds = {
 	Mechanic_Hub = {
-		Marker = vector3(1013.1, -2324.0, 30.5),
+		Marker = vector3(1012.92, -2324.65, 29.2),
 		Spawner = vector3(988.5, -2349.6, 30.5),
 		Heading = 318.34
+	},
+	Mechanic_aircraft = {
+		Marker = vector3(995.44, -2366.17, 34.16),
+		Spawner = vector3(1012.34, -2358.74, 36.08),
+		Heading = 266.4,
+		Hidden = true
 	}
 }
 -- End of Mechanic
 
+-- Start of Journalist
+
+Config.JournalistPounds = {
+	Journalist_pounds = {
+		Marker = vector3(374.42, -1620.68, 27.29),
+		Spawner = vector3(391.74, -1619.0, 28.29),
+		Heading = 318.34
+	},
+	Vespucci_Blvd = {
+        Marker = vector3(-1086.2, -849.8, 3.6),
+        Spawner = vector3(-1068.5, -857.2, 3.2),
+		Heading = 216.7,
+		Hidden = true
+    }
+}
+-- End of Journalist
+
+-- Start of Government
+
+Config.GovernmentPounds = {
+	Government_pounds = {
+		Marker = vector3(374.42, -1620.68, 27.29),
+		Spawner = vector3(391.74, -1619.0, 28.29),
+		Heading = 318.34
+	},
+	Vespucci_Blvd = {
+        Marker = vector3(-1086.2, -849.8, 3.6),
+        Spawner = vector3(-1068.5, -857.2, 3.2),
+		Heading = 216.7,
+		Hidden = true
+    }
+}
+-- End of Government
+
+-- Start of Terrorist
+Config.TerroristGarages = {}
+
+Config.TerroristPounds = {
+	Island = {
+		Marker = vector3(2832.93, 1667.85, 23.29),
+		Spawner = vector3(2820.4, 1671.22, 24.73),
+		Heading = 354.44
+	}
+}
+-- End of Terrorist
+
 -- Start of Aircrafts
 Config.AircraftGarages = {
 	Los_Santos_Airport = {
-		Marker = vector3(-1617.14, -3145.52, 12.99),
+		Marker = vector3(-1617.14, -3145.52, 12.69),
 		Spawner = vector3(-1657.99, -3134.38, 12.99),
-		Deleter = vector3(-1642.12, -3144.25, 12.99),
+		Deleter = vector3(-1642.12, -3144.25, 12.69),
 		Heading = 330.11
 	},
 	Sandy_Shores_Airport = {
-		Marker = vector3(1723.84, 3288.29, 40.16),
+		Marker = vector3(1723.84, 3288.29, 39.86),
 		Spawner = vector3(1710.85, 3259.06, 40.69),
 		Deleter = vector3(1714.45, 3246.75, 40.07),
 		Heading = 104.66
 	},
 	Grapeseed_Airport = {
-		Marker = vector3(2152.83, 4797.03, 40.19),
+		Marker = vector3(2152.83, 4797.03, 39.89),
 		Spawner = vector3(2122.72, 4804.85, 40.78),
 		Deleter = vector3(2082.36, 4806.06, 40.07),
 		Heading = 115.04
@@ -126,7 +200,7 @@ Config.AircraftGarages = {
 
 Config.AircraftPounds = {
 	Los_Santos_Airport = {
-		Marker = vector3(-1243.0, -3391.92, 12.94),
+		Marker = vector3(-1243.0, -3391.92, 12.64),
 		Spawner = vector3(-1272.27, -3382.46, 12.94),
 		Heading = 330.25
 	}
@@ -136,25 +210,25 @@ Config.AircraftPounds = {
 -- Start of Boats
 Config.BoatGarages = {
 	Los_Santos_Dock = {
-		Marker = vector3(-735.87, -1325.08, 0.6),
+		Marker = vector3(-735.87, -1325.08, 0.3),
 		Spawner = vector3(-718.87, -1320.18, -0.47),
 		Deleter = vector3(-731.15, -1334.71, -0.47),
 		Heading = 45.0
 	},
 	Sandy_Shores_Dock = {
-		Marker = vector3(1333.2, 4269.92, 30.5),
+		Marker = vector3(1333.2, 4269.92, 30.2),
 		Spawner = vector3(1334.61, 4264.68, 29.86),
 		Deleter = vector3(1323.73, 4269.94, 29.86),
 		Heading = 87.0
 	},
 	Paleto_Bay_Dock = {
-		Marker = vector3(-283.74, 6629.51, 6.3),
+		Marker = vector3(-283.74, 6629.51, 6.0),
 		Spawner = vector3(-290.46, 6622.72, -0.47),
 		Deleter = vector3(-304.66, 6607.36, -0.47),
 		Heading = 52.0
 	},
 	Terror_Dock = {
-		Marker = vector3(3090.01, 2230.8, 2.1),
+		Marker = vector3(3090.01, 2230.8, 1.8),
 		Spawner = vector3(3089.2, 2219.5, 0.6),
 		Deleter = vector3(3116.8, 2207.8, 0.5),
 		Heading = 174.53,
@@ -164,13 +238,13 @@ Config.BoatGarages = {
 
 Config.BoatPounds = {
 	Los_Santos_Dock = {
-		Marker = vector3(-738.67, -1400.43, 4.0),
+		Marker = vector3(-738.67, -1400.43, 3.4),
 		Spawner = vector3(-738.33, -1381.51, 0.12),
 		Heading = 137.85
 	},
 
 	Terrorist_Dock = {
-        Marker = vector3(3130.5, 2180.1, 3.4),
+        Marker = vector3(3130.5, 2180.1, 3.1),
         Spawner = vector3(3112.60, 2173.00, -0.50),
         Heading = 121.02,
 		Hidden = true
@@ -197,110 +271,110 @@ Config.CarGarages = {
 --		Heading = 157.84
 --	},
 	SanAndreas_PillBox = {
-        Marker = vector3(213.80, -809.20, 30.00),
+        Marker = vector3(213.80, -809.20, 29.7),
 	    Spawner = vector3(231.70, -796.70, 29.80),
-	    Deleter = vector3(220.4, -759.50, 29.80),
+	    Deleter = vector3(220.4, -759.50, 29.50),
 	    Heading = 157.84
 	},
 	Sandy_Shores = {
-		Marker = vector3(1737.59, 3710.2, 33.14),
+		Marker = vector3(1737.59, 3710.2, 32.84),
 		Spawner = vector3(1737.84, 3719.28, 33.04),
-		Deleter = vector3(1722.66, 3713.74, 33.21),
+		Deleter = vector3(1722.66, 3713.74, 32.91),
 		Heading = 21.22
 	},
 	Paleto_Bay = {
-		Marker = vector3(105.36, 6613.59, 31.40),
+		Marker = vector3(105.36, 6613.59, 31.10),
 		Spawner = vector3(128.78, 6622.99, 30.78),
-		Deleter = vector3(126.36, 6608.41, 30.86),
+		Deleter = vector3(126.36, 6608.41, 30.56),
 		Heading = 315.01
 	},
 	Terror_PubGarage = {                                                                                                                                                                                                                                       Marker = vector3(2868.20, 1688.30, 23.20),
-        Spawner = vector3(2823.50, 1677.50, 23.7),
-        Deleter = vector3(2834.00, 1678.10, 23.6),
+        Spawner = vector3(2823.50, 1677.50, 23.4),
+        Deleter = vector3(2834.00, 1678.10, 23.3),
         Heading = 0.00,
 		Hidden = true
 	},
 	OldPD_PG = {
-        Marker = vector3(462.4, -1014.6, 27.1),
-        Spawner = vector3(462.8, -1017.4, 28.1),
-        Deleter = vector3(452.6, -997.2, 24.8),
+        Marker = vector3(462.4, -1014.6, 26.8),
+        Spawner = vector3(453.61, -1019.99, 27.36),
+        Deleter = vector3(452.6, -997.2, 24.5),
         Heading = 90.46,
         Hidden = true
     },
     Vespucci_PG = {
-        Marker = vector3(-1107.2, -838.1, 12.3),
+        Marker = vector3(-1107.2, -838.1, 12.0),
         Spawner = vector3(-1137.2, -857.4, 11.8),
-        Deleter = vector3(-1111.5, -828.8, 12.3),
+        Deleter = vector3(-1111.5, -828.8, 12.0),
         Heading = 38.08,
 		Hidden = true
 	},
 	Paleto_Bay_Sherrif = {
-		Marker = vector3(-451.4, 6023.9, 30.5),
+		Marker = vector3(-451.4, 6023.9, 29.9),
 		Spawner = vector3(-454.1, 6027.8, 30.3),
-		Deleter = vector3(-458.7, 6005.6, 30.3),
+		Deleter = vector3(-458.7, 6005.6, 30.0),
 		Heading = 314.42,
 		Hidden = true
 	},
 	LDC_CD = {
-		Marker = vector3(-1208.7, -1730.4, 3.4),
+		Marker = vector3(-1208.7, -1730.4, 2.7),
 		Spawner = vector3(-1198.7, -1744.7, 3.4),
-		Deleter = vector3(-1214.2, -1731.3, 3.4),
+		Deleter = vector3(-1214.2, -1731.3, 3.1),
 		Heading = 216.86,
 		Hidden = true
 	},
 	Fort_Zancudo = {
-		Marker = vector3(-2411.5, 3266.1, 31.8),
+		Marker = vector3(-2411.5, 3266.1, 31.2),
 		Spawner = vector3(-2419.9, 3277.8, 32.8),
-		Deleter = vector3(-2409.3, 3285.5, 31.8),
+		Deleter = vector3(-2409.3, 3285.5, 31.5),
 		Heading = 330.89,
 		Hidden = true
 	},
 	Weazel_News = {
-		Marker = vector3(-582.9, -911.3, 22.9),
+		Marker = vector3(-582.9, -911.3, 22.3),
 		Spawner = vector3(-564.7, -902.1, 23.3),
-		Deleter = vector3(-603.8, -909.4, 22.9),
+		Deleter = vector3(-603.8, -909.4, 22.6),
 		Heading = 269.1,
 		Hidden = true
 	},
 	Mechanic_Hub = {
-		Marker = vector3(998.0, -2321.8, 29.6),
+		Marker = vector3(998.0, -2321.8, 29.0),
 		Spawner = vector3(992.5, -2311.7, 28.5),
-		Deleter = vector3(1002.8, -2289.4, 29.8),
+		Deleter = vector3(1002.8, -2289.4, 29.5),
 		Heading = 174.55,
 		Hidden = true
 	},
 	LSI_Airport = {
-		Marker = vector3(-990.7, -2699.4, 12.8),
+		Marker = vector3(-990.7, -2699.4, 12.2),
 		Spawner = vector3(-977.3, -2699.9, 12.9),
-		Deleter = vector3(-961.3, -2705.7, 12.8),
+		Deleter = vector3(-961.3, -2705.7, 12.5),
 		Heading = 58.7,
         Hidden = true
     },
 	DelPerro_Pier = {
-		Marker = vector3(-1599.1, -874.2, 8.8),
+		Marker = vector3(-1599.1, -874.2, 8.2),
 		Spawner = vector3(-1621.2, -861.1, 8.8),
-		Deleter = vector3(-1593.4, -910.2, 8.2),
+		Deleter = vector3(-1593.4, -910.2, 7.9),
 		Heading = 228.37,
         Hidden = true
     },
 	MazeBank_Arena = {
-		Marker = vector3(-185.8, -1995.9, 26.7),
+		Marker = vector3(-185.8, -1995.9, 26.1),
 		Spawner = vector3(-200.1, -1980.9, 26.6),
-		Deleter = vector3(-174.6, -1992.6, 26.6),
+		Deleter = vector3(-174.6, -1992.6, 26.3),
 		Heading = 180.00,
         Hidden = true
     },
 	Boiling_Brooke = {
-		Marker = vector3(1853.6, 2578.6, 44.7),
+		Marker = vector3(1853.6, 2578.6, 44.4),
 		Spawner = vector3(1864.2, 2562.8, 44.7),
-		Deleter = vector3(1870.5, 2590.6, 44.7),
+		Deleter = vector3(1870.5, 2590.6, 44.4),
 		Heading = 0.52,
         Hidden = true
     },
 	Concert_Hall = {
-		Marker = vector3(699.7, 612.9, 127.9),
+		Marker = vector3(699.7, 612.9, 127.6),
 		Spawner = vector3(707.7, 603.2, 127.9),
-		Deleter = vector3(672.6, 616.4, 127.9),
+		Deleter = vector3(672.6, 616.4, 127.6),
 		Heading = 70.42,
         Hidden = true
     }
@@ -308,22 +382,22 @@ Config.CarGarages = {
 
 Config.CarPounds = {
 	Los_Santos = {
-		Marker = vector3(408.61, -1625.47, 28.29),
+		Marker = vector3(408.61, -1625.47, 28.26),
 		Spawner = vector3(405.64, -1643.4, 27.61),
 		Heading = 229.54
 	},
 	Sandy_Shores = {
-		Marker = vector3(1651.38, 3804.84, 37.65),
+		Marker = vector3(1651.38, 3804.84, 37.62),
 		Spawner = vector3(1627.84, 3788.45, 33.77),
 		Heading = 308.53
 	},
 	Paleto_Bay = {
-		Marker = vector3(-234.82, 6198.65, 30.94),
+		Marker = vector3(-234.82, 6198.65, 30.91),
 		Spawner = vector3(-230.08, 6190.24, 30.49),
 		Heading = 140.24
 	},
 	Mechanic_Hub = {
-		Marker = vector3(1001.6, -2324.0, 29.5),
+		Marker = vector3(1001.6, -2324.0, 29.2),
 		Spawner =  vector3(994.5, -2289.2, 29.5),
 		Heading = 174.55,
 		Hidden = true
