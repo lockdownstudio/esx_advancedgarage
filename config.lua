@@ -27,7 +27,7 @@ Config.JPoundBlip = {Sprite = 67, Color = 49, Display = 2, Scale = 1.0} -- Job P
 Config.PoundWait = 5 -- How many Minutes someone must wait before Opening Pound Menu Again.
 Config.JPoundWait = 0.1 -- How many Minutes someone must wait before Opening Job Pound Menu Again.
 
-Config.UseDamageMult = false -- true = Costs more to Store a Broken/Damaged Vehicle.
+Config.UseDamageMult = true -- true = Costs more to Store a Broken/Damaged Vehicle.
 Config.DamageMult = 5 -- Higher Number = Higher Repair Price.
 
 Config.UsingAdvancedVehicleShop = false -- Set to true if using esx_advancedvehicleshop
@@ -134,7 +134,7 @@ Config.MechanicPounds = {
 
 Config.JournalistPounds = {
 	Journalist_pounds = {
-		Marker = vector3(374.42, -1620.68, 27.29),
+		Marker = vector3(374.42, -1620.68, 27.99),
 		Spawner = vector3(391.74, -1619.0, 28.29),
 		Heading = 318.34
 	},
@@ -151,7 +151,7 @@ Config.JournalistPounds = {
 
 Config.GovernmentPounds = {
 	Government_pounds = {
-		Marker = vector3(374.42, -1620.68, 27.29),
+		Marker = vector3(374.42, -1620.68, 27.99),
 		Spawner = vector3(391.74, -1619.0, 28.29),
 		Heading = 318.34
 	},
@@ -230,7 +230,7 @@ Config.BoatGarages = {
 	Terror_Dock = {
 		Marker = vector3(3090.01, 2230.8, 1.8),
 		Spawner = vector3(3089.2, 2219.5, 0.6),
-		Deleter = vector3(3116.8, 2207.8, 0.5),
+		Deleter = vector3(3116.8, 2207.8, 0.0),
 		Heading = 174.53,
 		Hidden = true
 	}
@@ -283,10 +283,17 @@ Config.CarGarages = {
 		Heading = 21.22
 	},
 	Paleto_Bay = {
-		Marker = vector3(105.36, 6613.59, 31.10),
+		Marker = vector3(105.36, 6613.59, 31.40),
 		Spawner = vector3(128.78, 6622.99, 30.78),
 		Deleter = vector3(126.36, 6608.41, 30.56),
 		Heading = 315.01
+	},
+	Gov_HQ = {
+		Marker = vector3(-3198.4, 835.4, 7.5),
+		Spawner = vector3(-3214.0, 833.0, 7.9),
+		Deleter = vector3(-3204.3, 843.4, 7.5),
+		Heading = 211.39,
+		Hidden = true
 	},
 	Terror_PubGarage = {                                                                                                                                                                                                                                       Marker = vector3(2868.20, 1688.30, 23.20),
         Spawner = vector3(2823.50, 1677.50, 23.4),
@@ -337,7 +344,7 @@ Config.CarGarages = {
 		Hidden = true
 	},
 	Mechanic_Hub = {
-		Marker = vector3(998.0, -2321.8, 29.0),
+		Marker = vector3(998.0, -2321.8, 29.3),
 		Spawner = vector3(992.5, -2311.7, 28.5),
 		Deleter = vector3(1002.8, -2289.4, 29.5),
 		Heading = 174.55,
