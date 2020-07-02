@@ -457,7 +457,7 @@ function ListOwnedMechanicMenu()
 		table.insert(elements, {label = spacer, value = nil})
 	end
 
-	ESX.TriggerServerCallback('esx_advancedgarage:getOwnedMechanicCars', function(ownedMehanicCars)
+	ESX.TriggerServerCallback('esx_advancedgarage:getOwnedMechanicCars', function(ownedMechanicCars)
 		if #ownedMechanicCars == 0 then
 			ESX.ShowNotification(_U('garage_no_mechanic'))
 		else
@@ -2414,6 +2414,12 @@ Citizen.CreateThread(function()
 					StoreOwnedPoliceMenu()
 				elseif CurrentAction == 'police_pound_point' then
 					ReturnOwnedPoliceMenu()
+				elseif CurrentAction == 'mechanic_garage_point' then
+					ListOwnedMechanicMenu()
+				elseif CurrentAction == 'mechanic_store_point' then
+					StoreOwnedMechanicMenu()
+				elseif CurrentAction == 'mechanic_pound_point' then
+					ReturnOwnedMechanicMenu()
 				elseif CurrentAction == 'journalist_garage_point' then
 					ListOwnedJournalistMenu()
 				elseif CurrentAction == 'journalist_store_point' then

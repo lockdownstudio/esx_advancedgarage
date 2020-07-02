@@ -24,7 +24,7 @@ Config.PoundBlip = {Sprite = 67, Color = 64, Display = 2, Scale = 1.0} -- Pound 
 Config.JGarageBlip = {Sprite = 290, Color = 49, Display = 2, Scale = 1.0} -- Job Garage Blip.
 Config.JPoundBlip = {Sprite = 67, Color = 49, Display = 2, Scale = 1.0} -- Job Pound Blip.
 
-Config.PoundWait = 5 -- How many Minutes someone must wait before Opening Pound Menu Again.
+Config.PoundWait = 0.1 -- How many Minutes someone must wait before Opening Pound Menu Again.
 Config.JPoundWait = 0.1 -- How many Minutes someone must wait before Opening Job Pound Menu Again.
 
 Config.UseDamageMult = true -- true = Costs more to Store a Broken/Damaged Vehicle.
